@@ -1,0 +1,56 @@
+td{
+    width: 2em;
+    height: 2em;
+    padding: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.visible{
+    background: transparent;
+    border-top: 1px solid #808080;
+    border-left: 1px solid #808080; 
+}
+[class~=value_]{
+    background-size: contain;
+}
+.value_1{
+    background-image: url(./img/1.svg);
+}
+.value_2{
+    background-image: url(./img/2.svg);
+}
+.value_3{
+    background-image: url(./img/3.svg);
+}
+.value_4{
+    background-image: url(./img/4.svg);
+}
+.value_B{
+    background-image: url(./img/mine.svg);
+    &:focus{
+        background-color: red;
+    }
+}
+.hidden{
+    position: relative;
+    border: 3px outset #fff;
+    z-index: 0;
+    &::after{
+        content: '';
+        background: #bfbfbf;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+    }
+    &.marked{
+        &::after{
+            background-image: url(./img/flag.svg);
+        }
+    }
+}

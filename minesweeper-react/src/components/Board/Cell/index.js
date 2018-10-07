@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
 
+import './styles.scss';
+
 export default class Cell extends Component {
+
+  className(){
+    const {visible, marked, value } = this.props;
+    let classString = "";
+    if(visible){
+      classString += `visible value_${value}`;
+    } else if(marked){
+      classString += 'hidden marked '
+    } else {
+      classString += 'hidden'
+    }
+    return classString;
+  }
+
   render(){
-    const {x, y, visible, value, onClick } = this.props;
+    const {onClick, onContextMenu } = this.props;
     return (
       <td
-        key={`cell_${x}_${y}`}
         tabIndex="0"
-        className={!visible ? 'hidden' : 'visible'}
+        className={this.className()}
         onClick={onClick}
+        onContextMenu={onContextMenu}
       >
-        {value}
       </td>
     );
   }

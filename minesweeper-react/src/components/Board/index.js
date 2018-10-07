@@ -14,12 +14,27 @@ export default class Board extends Component {
     result: 'playing',
   }
 
-  componentWillMount() {
-    this.generateMines();
+  beatingGame = false;
+
+  componentWillMount(){
+    const { height, width, mines } = this.props;
+    this.generateMines(height, width, mines);
   }
 
-  generateMines() {
-    const { height, width, mines } = this.props;
+  componentWillReceiveProps(nextProps) {   
+    const { height, width, mines } = nextProps;
+    this.generateMines(height, width, mines);
+  }
+
+  resetState(){
+    this.setState({
+      board: [],
+      result: 'playing',
+    });
+    this.beatingGame = false;
+  }
+
+  generateMines(height, width, mines) {
     let rem_squares = height * width;
     let rem_mines = mines;
 
@@ -50,27 +65,46 @@ export default class Board extends Component {
 
   beatGame() {
     this.setState({ result: 'Win' });
-    window.alert('You beat the game!')
+    if(!this.beatingGame){
+      this.beatingGame = true;
+      window.alert('You beat the game!');
+    }
   }
 
   onClickCell(x, y) {
     const { mines } = this.props;
     const { board, result } = this.state;
-
+    
     if (result === 'playing') {
+      if(this.isMarked(x, y)){
+        return;
+      }
       if (board[x][y].hasMine) {
         this.onGameOver();
       }
       let newBoard = board;
-      newBoard[x][y].isVisible = true;
-      this.hidden--;
+      if(!this.isVisible(x,y)){
+        newBoard[x][y].isVisible = true;
+        this.hidden--;
+      }
       if (this.cellValue(x, y) === 0) {
         this.onClickZero(x, y);
       }
-      this.setState({ board: newBoard });
-      if (this.hidden === mines) {
-        this.beatGame();
-      }
+      this.setState({ board: newBoard }, ()=>{
+        if (this.hidden === mines) {
+          this.beatGame();
+        }
+      });
+    }
+  }
+
+  onRightClickCell(x, y, e){
+    e.preventDefault();
+    const { board, result } = this.state;
+    
+    if (result === 'playing') {
+      board[x][y].isMarked = !board[x][y].isMarked;
+      this.setState({board})
     }
   }
 
@@ -114,6 +148,11 @@ export default class Board extends Component {
     return board[x][y].isVisible;
   }
 
+  isMarked(x, y) {
+    const { board } = this.state;
+    return board[x][y].isMarked;
+  }
+
   cellValue(x, y) {
     const { height, width } = this.props;
     const { board } = this.state;
@@ -138,11 +177,12 @@ export default class Board extends Component {
     for (let i = 0; i < width; i++) {
       cells.push((
         <Cell
-          x={i}
-          y={row_index}
+          key={`cell_${i}_${row_index}`}
           visible={this.isVisible(i, row_index)}
+          marked={this.isMarked(i, row_index)}
           value={this.cellValue(i, row_index)}
           onClick={this.onClickCell.bind(this, i, row_index)}
+          onContextMenu={this.onRightClickCell.bind(this, i, row_index)}
         />
       ));
     }

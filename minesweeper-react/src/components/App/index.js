@@ -4,19 +4,76 @@ import Board from '../Board';
 
 class App extends Component {
   state = {
-    board: {
-      height: 10,
-      width: 10,
-    },
+    height: 10,
+    width: 10,
     mines: 10,
   };
 
+  form = {
+    height: 10,
+    width: 10,
+    mines: 10,
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    let value = target.type === 'checkbox' ? target.checked : +target.value;
+    const name = target.name;
+    console.log(name, value)
+    if ((name === 'height' || name === 'width') && value > 50) {
+      value = 50;
+    }
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleFormSubmit(e) {
+    e.preventDefault();
+    console.log(this.form);
+  }
+
 
   render() {
-    const { board, mines } = this.state
+    const { height, width, mines } = this.state;
     return (
       <div className="App">
-        <Board height={board.height} width={board.width} mines={mines} />
+        <form onSubmit={this.handleFormSubmit.bind(this)}>
+          <label>
+            Height:
+            <input
+              type="number"
+              name="height"
+              placeholder="height"
+              value={height}
+              onChange={this.handleInputChange.bind(this)}
+            />
+          </label>
+          <br />
+          <label>
+            Width:
+            <input
+              type="number"
+              name="width"
+              placeholder="width"
+              value={width}
+              onChange={this.handleInputChange.bind(this)}
+            />
+          </label>
+          <br />
+          <label>
+            Mines:
+            <input
+              type="number"
+              name="mines"
+              placeholder="mines"
+              value={mines}
+              onChange={this.handleInputChange.bind(this)}
+            />
+          </label>
+          <button type="submit">Apply</button>
+        </form>
+        <Board height={this.state.height} width={this.state.width} mines={this.state.mines} />
       </div>
     );
   }
