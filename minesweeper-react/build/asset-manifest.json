@@ -1,14 +1,14 @@
 {
-  "main.css": "/minesweeper-react/static/css/main.a2677259.chunk.css",
-  "main.js": "/minesweeper-react/static/js/main.a1e62e26.chunk.js",
-  "main.js.map": "/minesweeper-react/static/js/main.a1e62e26.chunk.js.map",
-  "static/js/1.8cd7744e.chunk.js": "/minesweeper-react/static/js/1.8cd7744e.chunk.js",
-  "static/js/1.8cd7744e.chunk.js.map": "/minesweeper-react/static/js/1.8cd7744e.chunk.js.map",
-  "runtime~main.js": "/minesweeper-react/static/js/runtime~main.9ed1dc90.js",
-  "runtime~main.js.map": "/minesweeper-react/static/js/runtime~main.9ed1dc90.js.map",
-  "static/media/styles.scss": "/minesweeper-react/static/media/4.258898ed.svg",
-  "static/css/main.a2677259.chunk.css.map": "/minesweeper-react/static/css/main.a2677259.chunk.css.map",
-  "index.html": "/minesweeper-react/index.html",
-  "precache-manifest.fe42bceb20f994fa2d60fe6de10bb411.js": "/minesweeper-react/precache-manifest.fe42bceb20f994fa2d60fe6de10bb411.js",
-  "service-worker.js": "/minesweeper-react/service-worker.js"
+  "main.css": "/minesweeper-js/minesweeper-react/static/css/main.426b1638.chunk.css",
+  "main.js": "/minesweeper-js/minesweeper-react/static/js/main.da6bf36e.chunk.js",
+  "main.js.map": "/minesweeper-js/minesweeper-react/static/js/main.da6bf36e.chunk.js.map",
+  "static/js/1.8cd7744e.chunk.js": "/minesweeper-js/minesweeper-react/static/js/1.8cd7744e.chunk.js",
+  "static/js/1.8cd7744e.chunk.js.map": "/minesweeper-js/minesweeper-react/static/js/1.8cd7744e.chunk.js.map",
+  "runtime~main.js": "/minesweeper-js/minesweeper-react/static/js/runtime~main.cc173b88.js",
+  "runtime~main.js.map": "/minesweeper-js/minesweeper-react/static/js/runtime~main.cc173b88.js.map",
+  "static/media/styles.scss": "/minesweeper-js/minesweeper-react/static/media/2.38dd7e19.svg",
+  "static/css/main.426b1638.chunk.css.map": "/minesweeper-js/minesweeper-react/static/css/main.426b1638.chunk.css.map",
+  "index.html": "/minesweeper-js/minesweeper-react/index.html",
+  "precache-manifest.418c08d28015b04bb475575738f0bb4f.js": "/minesweeper-js/minesweeper-react/precache-manifest.418c08d28015b04bb475575738f0bb4f.js",
+  "service-worker.js": "/minesweeper-js/minesweeper-react/service-worker.js"
 }
