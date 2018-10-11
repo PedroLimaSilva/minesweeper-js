@@ -19,7 +19,6 @@ class App extends Component {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : +target.value;
     const name = target.name;
-    console.log(name, value)
     if ((name === 'height' || name === 'width') && value > 50) {
       value = 50;
     }
@@ -28,17 +27,11 @@ class App extends Component {
     });
   }
 
-  handleFormSubmit(e) {
-    e.preventDefault();
-    console.log(this.form);
-  }
-
-
   render() {
     const { height, width, mines } = this.state;
     return (
       <div className="App">
-        <form onSubmit={this.handleFormSubmit.bind(this)}>
+        <form>
           <label>
             Height:
             <input
@@ -71,7 +64,6 @@ class App extends Component {
               onChange={this.handleInputChange.bind(this)}
             />
           </label>
-          <button type="submit">Apply</button>
         </form>
         <Board height={this.state.height} width={this.state.width} mines={this.state.mines} />
       </div>
