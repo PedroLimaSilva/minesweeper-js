@@ -8,12 +8,12 @@ export function between(v,a,b) {
     return (v>=a) && (v<=b);
 };
 
-export function noCorners(x,y, width, height){
+export function isCorner(x,y, width, height){
     if(x>0 && x<width-1){
-        return true;
+        return false;
     }
     if(y>0 && y<height-1){
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { between, noCorners } from '../../helpers';
+import { between, isCorner } from '../../helpers';
 
 import Cell from './Cell';
 
@@ -38,6 +38,8 @@ export default class Board extends Component {
     let rem_squares = height * width;
     let rem_mines = mines;
 
+    this.resetState();
+
     let grid = [];
 
     for (let n = 0; n < width; n++) {
@@ -51,7 +53,7 @@ export default class Board extends Component {
       for (let x = 0; x < width; x++) {
         if (
           (rem_mines / rem_squares) >= Math.random() &&
-          noCorners(x, y, width, height)
+          !isCorner(x, y, width, height)
         ) {
           rem_mines--;
           grid[x][y].hasMine = true;
