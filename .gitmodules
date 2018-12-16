@@ -1,0 +1,3 @@
+[submodule "react/public/styles"]
+	path = react/public/styles
+	url = https://github.com/PedroLimaSilva/minesweeper-css.git

@@ -5,8 +5,6 @@ import { between, isCorner } from '../../helpers';
 
 import Cell from './Cell';
 
-import './styles.scss';
-
 export default class Board extends Component {
 
   state = {
@@ -197,13 +195,13 @@ export default class Board extends Component {
     const rows = [];
     for (let i = 0; i < height; i++) {
       rows.push((
-        <tr key={`row_${i}`}>{this.renderRow(i)}</tr>
+        <div className="row" key={`row_${i}`}>{this.renderRow(i)}</div>
       ));
     }
     return (
-      <table className="Board">
-        <tbody>{rows}</tbody>
-      </table>
+      <div className="Board">
+        {rows}
+      </div>
     );
   }
 

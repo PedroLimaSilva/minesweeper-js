@@ -1,32 +1,26 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
+import classNames from 'classnames';
 
-import './styles.scss';
-
-export default class Cell extends Component {
-
-  className(){
-    const {visible, marked, value } = this.props;
-    let classString = "";
-    if(visible){
-      classString += `visible value_${value}`;
-    } else if(marked){
-      classString += 'hidden marked '
-    } else {
-      classString += 'hidden'
-    }
-    return classString;
-  }
+export default class Cell extends PureComponent {
 
   render(){
-    const {onClick, onContextMenu } = this.props;
+    const {onClick, onContextMenu, visible, marked, value } = this.props;
     return (
-      <td
+      <div
         tabIndex="0"
-        className={this.className()}
+        className={classNames(
+          'Cell',
+          {
+            visible: visible,
+            [`value_${value}`]: visible,
+            hidden: !visible,
+            marked: marked
+          }
+        )}
         onClick={onClick}
         onContextMenu={onContextMenu}
       >
-      </td>
+      </div>
     );
   }
 }
