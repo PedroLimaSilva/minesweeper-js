@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import { between, isCorner } from '../../helpers';
+import { between } from '../../helpers';
 
 import Cell from './Cell';
 
@@ -49,10 +49,7 @@ export default class Board extends Component {
 
     for (let y = 0; y < height; y++) {
       for (let x = 0; x < width; x++) {
-        if (
-          (rem_mines / rem_squares) >= Math.random() &&
-          !isCorner(x, y, width, height)
-        ) {
+        if ((rem_mines / rem_squares) >= Math.random()) {
           rem_mines--;
           grid[x][y].hasMine = true;
         }
@@ -65,7 +62,7 @@ export default class Board extends Component {
 
   beatGame() {
     this.setState({ result: 'Win' });
-    if(!this.beatingGame){
+    if(!this.beatingGame && this.state.result !== 'lost'){
       this.beatingGame = true;
       window.alert('You beat the game!');
     }

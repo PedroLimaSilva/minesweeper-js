@@ -21,6 +21,12 @@ class App extends Component {
     if ((name === 'height' || name === 'width') && value > 50) {
       value = 50;
     }
+    if (name === 'mines') {
+      const maxMines = this.form.width * this.form.height;
+      if (value > maxMines) {
+        value = maxMines;
+      }
+    }
     this.setState({
       [name]: value
     });
