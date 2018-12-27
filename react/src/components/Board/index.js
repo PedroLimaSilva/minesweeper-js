@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { between } from '../../helpers';
 
 import Cell from './Cell';
+import Resizer from '../Resizer';
 
 export default class Board extends Component {
 
@@ -14,17 +15,17 @@ export default class Board extends Component {
 
   beatingGame = false;
 
-  componentWillMount(){
+  componentWillMount() {
     const { height, width, mines } = this.props;
     this.generateMines(height, width, mines);
   }
 
-  componentWillReceiveProps(nextProps) {   
+  componentWillReceiveProps(nextProps) {
     const { height, width, mines } = nextProps;
     this.generateMines(height, width, mines);
   }
 
-  resetState(){
+  resetState() {
     this.setState({
       board: [],
       result: 'playing',
@@ -62,7 +63,7 @@ export default class Board extends Component {
 
   beatGame() {
     this.setState({ result: 'Win' });
-    if(!this.beatingGame && this.state.result !== 'lost'){
+    if (!this.beatingGame && this.state.result !== 'lost') {
       this.beatingGame = true;
       window.alert('You beat the game!');
     }
@@ -71,23 +72,23 @@ export default class Board extends Component {
   onClickCell(x, y) {
     const { mines } = this.props;
     const { board, result } = this.state;
-    
+
     if (result === 'playing') {
-      if(this.isMarked(x, y)){
+      if (this.isMarked(x, y)) {
         return;
       }
       if (board[x][y].hasMine) {
         this.onGameOver();
       }
       let newBoard = board;
-      if(!this.isVisible(x,y)){
+      if (!this.isVisible(x, y)) {
         newBoard[x][y].isVisible = true;
         this.hidden--;
       }
       if (this.cellValue(x, y) === 0) {
         this.onClickZero(x, y);
       }
-      this.setState({ board: newBoard }, ()=>{
+      this.setState({ board: newBoard }, () => {
         if (this.hidden === mines) {
           this.beatGame();
         }
@@ -95,13 +96,13 @@ export default class Board extends Component {
     }
   }
 
-  onRightClickCell(x, y, e){
+  onRightClickCell(x, y, e) {
     e.preventDefault();
     const { board, result } = this.state;
-    
+
     if (result === 'playing') {
       board[x][y].isMarked = !board[x][y].isMarked;
-      this.setState({board})
+      this.setState({ board })
     }
   }
 
@@ -196,7 +197,10 @@ export default class Board extends Component {
       ));
     }
     return (
-      <div className="Board">
+      <div
+        className="Board"
+        ref={(el) => {this.container = el}}
+      >
         {rows}
       </div>
     );
@@ -205,10 +209,10 @@ export default class Board extends Component {
   render() {
     const { height, width } = this.props;
     return (
-      <div>
+      <Resizer childContainer={this.container} cells={width}>
         <h1>table {height}x{width}</h1>
         {this.renderTable()}
-      </div>
+      </Resizer>
     );
   }
 }

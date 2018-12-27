@@ -18,8 +18,12 @@ class App extends Component {
     const target = event.target;
     let value = target.type === 'checkbox' ? target.checked : +target.value;
     const name = target.name;
-    if ((name === 'height' || name === 'width') && value > 50) {
-      value = 50;
+    if ((name === 'height' || name === 'width')) {
+      if (value < 1) {
+        value = 1;
+      } else if (value > 50) {
+        value = 50;
+      }
     }
     if (name === 'mines') {
       const maxMines = this.form.width * this.form.height;
