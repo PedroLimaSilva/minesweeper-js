@@ -4,15 +4,15 @@ self.__precacheManifest = [
     "url": "/minesweeper-js/react/build/static/js/runtime~main.af954197.js"
   },
   {
-    "revision": "25bbc9f05b382f8cffa8",
-    "url": "/minesweeper-js/react/build/static/js/main.25bbc9f0.chunk.js"
+    "revision": "d19e994a7ea099c33786",
+    "url": "/minesweeper-js/react/build/static/js/main.d19e994a.chunk.js"
   },
   {
     "revision": "5fd27dd2e1c42a1bcf65",
     "url": "/minesweeper-js/react/build/static/js/1.5fd27dd2.chunk.js"
   },
   {
-    "revision": "4822bd2fcebe0a01e04f07601407895c",
+    "revision": "7e77f902f244ad87106d0805d8bfd107",
     "url": "/minesweeper-js/react/build/index.html"
   }
 ];

@@ -96,7 +96,9 @@ export default class Board extends Component {
   }
 
   onRightClickCell(x, y, e){
-    e.preventDefault();
+    if(e){
+      e.preventDefault();
+    }
     const { board, result } = this.state;
     
     if (result === 'playing') {

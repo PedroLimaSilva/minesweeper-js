@@ -1,11 +1,11 @@
 {
-  "main.js": "/minesweeper-js/react/build/static/js/main.25bbc9f0.chunk.js",
-  "main.js.map": "/minesweeper-js/react/build/static/js/main.25bbc9f0.chunk.js.map",
+  "main.js": "/minesweeper-js/react/build/static/js/main.d19e994a.chunk.js",
+  "main.js.map": "/minesweeper-js/react/build/static/js/main.d19e994a.chunk.js.map",
   "static/js/1.5fd27dd2.chunk.js": "/minesweeper-js/react/build/static/js/1.5fd27dd2.chunk.js",
   "static/js/1.5fd27dd2.chunk.js.map": "/minesweeper-js/react/build/static/js/1.5fd27dd2.chunk.js.map",
   "runtime~main.js": "/minesweeper-js/react/build/static/js/runtime~main.af954197.js",
   "runtime~main.js.map": "/minesweeper-js/react/build/static/js/runtime~main.af954197.js.map",
   "index.html": "/minesweeper-js/react/build/index.html",
-  "precache-manifest.7ee66eadd354c5c9c91abe43014c7fb1.js": "/minesweeper-js/react/build/precache-manifest.7ee66eadd354c5c9c91abe43014c7fb1.js",
+  "precache-manifest.c5bee019088f7056010637558a80c334.js": "/minesweeper-js/react/build/precache-manifest.c5bee019088f7056010637558a80c334.js",
   "service-worker.js": "/minesweeper-js/react/build/service-worker.js"
 }

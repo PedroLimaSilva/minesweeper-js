@@ -37,39 +37,41 @@ class App extends Component {
     return (
       <div className="App">
         <form>
-          <label>
-            Height:
+          <div className="input-field">
+            <label htmlFor="height">Height</label>
             <input
               type="number"
+              id="height"
               name="height"
               placeholder="height"
               value={height}
               onChange={this.handleInputChange.bind(this)}
             />
-          </label>
-          <br />
-          <label>
-            Width:
+          </div>
+          <div className="input-field">
+            <label htmlFor="width">Width</label>
             <input
               type="number"
+              id="width"
               name="width"
               placeholder="width"
               value={width}
               onChange={this.handleInputChange.bind(this)}
             />
-          </label>
-          <br />
-          <label>
-            Mines:
+          </div>
+          <div className="input-field">
+            <label htmlFor="mines">Mines</label>
             <input
               type="number"
+              id="mines"
               name="mines"
               placeholder="mines"
               value={mines}
               onChange={this.handleInputChange.bind(this)}
             />
-          </label>
+          </div>
         </form>
+        <p>0.0.5</p>
         <Board height={this.state.height} width={this.state.width} mines={this.state.mines} />
       </div>
     );
